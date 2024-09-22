@@ -1,30 +1,28 @@
 package main.java;
+
 import java.util.Scanner;
 
 public class App {
-        //Comentário
+    // Comentário
 
-    public static void funcao_teste (){
-        //Biblioteca para entrada de dados
-        Scanner ler = new Scanner(System.in); 
-
-        //variável local a
-        String v2;
-        int v1;
-
-        System.out.println("Comando de Saida de Dados");
-        
-        System.out.printf("Informe uma palavra: ");
-        v2 = ler.next();
-
-        System.out.printf("Informe um número: ");
-        v1 = ler.nextInt();
-
-        System.out.printf(v2+" "+v1);
-    }
     public static void main(String[] args) throws Exception {
-        funcao_teste();
 
+        CorpoHumano c1 = new CorpoHumano();
+        // AQUI OCORRE ERRO, POIS "massa" ESTA COMO "private", OU SEJA NAO É VISIVEL
+        // OBS: DEIXEI "c1.massa='1' COMENTADO PARA O CODIGO FUNCIONAR"
+        c1.massa = 1;
+
+        // AGORA DEIXANDO MASSA COMO PUBLIC
+        c1.massa = 1;
+        // PERCEBEMOS QUE AGORA É POSSIVEL ATRIBUIR O VALOR NORMALMENTE
+
+        // AQUI OCORRE ERRO, POIS SETVOLUME ESTA COMO PRIVADO
+        c1.setVolume(1);
+
+        // DESAFIO IMC
+        Imc imc = new Imc();
+        imc.receberDados();
+        System.out.printf("%.2f%n", imc.exibirImc(imc.getPeso(), imc.getAltura()));
 
     }
 }
